@@ -22,11 +22,17 @@
     <style>
       body{
         font-family: "Microsoft JhengHei UI";
-        background: <{$bg_color}> url("<{$xoops_url}>/uploads/tad_web/<{$WebID}>/bg/<{$web_bg}>");
+        <{if $bg_color}>background-color: <{$bg_color}>;<{/if}>
+        <{if $web_bg}>background-image: url('<{$xoops_url}>/uploads/tad_web/<{$WebID}>/bg/<{$web_bg}>');<{/if}>
+        <{if $bg_repeat}>background-repeat: <{$bg_repeat}>;<{/if}>
+        <{if $bg_attachment}>background-attachment: <{$bg_attachment}>;<{/if}>
+        <{if $bg_postiton}>background-position: <{$bg_postiton}>;<{/if}>
+        <{if $bg_size}>background-size: <{$bg_size}>;<{/if}>
       }
       h1,h2,h3{
         text-shadow: 1px 1px 0 #FFFFFF, -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF,1px 0px 0 #FFFFFF, -1px 0px 0 #FFFFFF, 0px -1px 0 #FFFFFF, 0px 1px 0 #FFFFFF;
       }
+
       .sf-menu a{
         color: <{$navbar_color}>;
       }
@@ -123,16 +129,35 @@
         color: <{$navbar_color}>;
         border-top: none;
       }
+      .sf-arrows .sf-with-ul:after {
+        border-top-color: <{$navbar_color}>;
+      .sf-arrows > li > .sf-with-ul:focus:after,
+      .sf-arrows > li:hover > .sf-with-ul:after,
+      .sf-arrows > .sfHover > .sf-with-ul:after {
+        border-top-color: <{$navbar_color_hover}>; /* IE8 fallback colour */
+      }
+      .sf-arrows ul .sf-with-ul:after {
+        border-left-color: <{$navbar_color}>;
+      }
+      .sf-arrows ul li > .sf-with-ul:focus:after,
+      .sf-arrows ul li:hover > .sf-with-ul:after,
+      .sf-arrows ul .sfHover > .sf-with-ul:after {
+        border-left-color: <{$navbar_color_hover}>;
+      }
     </style>
 
     <{if $web_display_mode=="no"}>
-      <div class="container" id="container" style="background-color: <{$container_bg_color}>;">
+      <div class="container" id="container">
         <a name="top"></a>
         <div class="row">
-          <div class="col_md_12 text-center" id="web_center_block">
+          <div class="col-md-9 text-center" id="web_center_block">
             <a href="index.php">
-              <img src="<{xoImgUrl images/no_web.png}>" alt="The web does not exist!">
+              <img src="<{xoAppUrl modules/tad_web/images/site_close.png}>" alt="The web does not exist!">
             </a>
+          </div>
+
+          <div class="col-md-3">
+            <{includeq file="$xoops_rootpath/modules/tad_web/plugins/system/tpls/login.html"}>
           </div>
         </div>
       </div>
@@ -152,20 +177,38 @@
             </div>
           <{else}>
             <{if $theme_side=="left"}>
-              <div class="col-md-3 web_side_block" id="web_side_block" style="background: <{$side_bg_color}>;">
-                <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_side_b3.html"}>
+              <div class="col-md-3 web_side_block" id="web_side_block">
+                <div <{if $side_bg_color!=$container_bg_color}>style="background: <{$side_bg_color}>; border-radius: 5px; padding: 20px 10px; margin-bottom: 20px;"<{/if}>>
+                  <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_side_b3.html"}>
+                </div>
               </div>
             <{/if}>
             <div class="col-md-9 web_center_block" id="web_center_block">
                 <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_center_b3.html"}>
             </div>
             <{if $theme_side=="right"}>
-              <div class="col-md-3 web_side_block" id="web_side_block" style="background: <{$side_bg_color}>;">
-                <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_side_b3.html"}>
+              <div class="col-md-3 web_side_block" id="web_side_block">
+                <div <{if $side_bg_color!=$container_bg_color}>style="background: <{$side_bg_color}>; border-radius: 5px; padding: 20px 10px; margin-bottom: 20px;"<{/if}>>
+                  <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_side_b3.html"}>
+                </div>
               </div>
             <{/if}>
           <{/if}>
         </div>
+      </div>
+
+      <div id="tad_web_footer" style="background: #000000; color: #fcfcfc; font-size: 12px; font-family: Arial, Tahoma, Helvetica, Comic Sans MS, Georgia; padding: 5px;">
+
+        <{if $_IS_EZCLASS}>
+          <div class="row">
+            <div class="col-md-6 text-left"><a href="http://class.tn.edu.tw/<{$WebID}>" target="_blank">本站網址：<span style="color:#60FF88;">http://class.tn.edu.tw/<{$WebID}></span></a></div>
+            <div class="col-md-6 text-right"><a href="http://class.tn.edu.tw" target="_blank">本站使用「班網輕鬆架」服務架設</a></div>
+          </div>
+        <{else}>
+          <div class="text-center">
+            <a href="http://campus-xoops.tn.edu.tw/modules/tad_modules/index.php?module_sn=16" target="_blank">tad web</a> version: <{$your_version}>
+          </div>
+        <{/if}>
       </div>
     <{/if}>
 
@@ -180,13 +223,6 @@
     <{if $show_var=='1'}>
       <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/show_var.html"}>
     <{/if}>
-    <div id="tad_web_footer" class="text-right" style="background: #000000; color: #fcfcfc; font-size: 12px; font-family: Arial, Tahoma, Helvetica, Comic Sans MS, Georgia; padding: 5px;">
 
-      <{if $_IS_EZCLASS}>
-        <a href="http://class.tn.edu.tw" target="_blank">本站使用「班網輕鬆架」服務架設</a>
-      <{else}>
-        <a href="http://campus-xoops.tn.edu.tw/modules/tad_modules/index.php?module_sn=16" target="_blank">tad web</a> version: <{$your_version}>
-      <{/if}>
-    </div>
   </body>
 </html>
