@@ -146,12 +146,12 @@
       <div class="container" id="container" style="background-color: <{$container_bg_color}>;">
         <a name="top"></a>
         <div class="row" style="margin-top: 10px;">
-          <div class="col-md-12">
+          <div class="col-sm-12">
             <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_header_b3.html"}>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12 text-center" id="web_center_block">
+          <div class="col-sm-12 text-center" id="web_center_block">
             <a href="index.php">
               <img src="<{xoAppUrl modules/tad_web/images/site_close.png}>" alt="The web does not exist!">
             </a>
@@ -168,28 +168,28 @@
       <div class="container" id="container" style="background-color: <{$container_bg_color}>;">
         <a name="top"></a>
         <div class="row" style="margin-top: 10px;">
-          <div class="col-md-12">
+          <div class="col-sm-12">
             <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_header_b3.html"}>
           </div>
         </div>
         <div class="row">
           <{if $theme_side=="none"}>
-            <div class="col-md-12 web_center_block" id="web_center_block">
+            <div class="col-sm-12 web_center_block" id="web_center_block">
               <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_center_b3.html"}>
             </div>
           <{else}>
             <{if $theme_side=="left"}>
-              <div class="col-md-3 web_side_block" id="web_side_block">
+              <div class="col-sm-3 web_side_block" id="web_side_block">
                 <div <{if $side_bg_color!=$container_bg_color}>style="background: <{$side_bg_color}>; border-radius: 5px; padding: 20px 10px; margin-bottom: 20px;"<{/if}>>
                   <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_side_b3.html"}>
                 </div>
               </div>
             <{/if}>
-            <div class="col-md-9 web_center_block" id="web_center_block">
+            <div class="col-sm-9 web_center_block" id="web_center_block">
                 <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_center_b3.html"}>
             </div>
             <{if $theme_side=="right"}>
-              <div class="col-md-3 web_side_block" id="web_side_block">
+              <div class="col-sm-3 web_side_block" id="web_side_block">
                 <div <{if $side_bg_color!=$container_bg_color}>style="background: <{$side_bg_color}>; border-radius: 5px; padding: 20px 10px; margin-bottom: 20px;"<{/if}>>
                   <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_side_b3.html"}>
                 </div>
@@ -203,8 +203,8 @@
 
         <{if $_IS_EZCLASS}>
           <div class="row">
-            <div class="col-md-6 text-left"><a href="http://class.tn.edu.tw/<{$WebID}>" target="_blank">本站網址：<span style="color:#60FF88;">http://class.tn.edu.tw/<{$WebID}></span></a></div>
-            <div class="col-md-6 text-right"><a href="http://class.tn.edu.tw" target="_blank">本站使用「班網輕鬆架」服務架設</a></div>
+            <div class="col-sm-6 text-left"><a href="http://class.tn.edu.tw/<{$WebID}>" target="_blank">本站網址：<span style="color:#60FF88;">http://class.tn.edu.tw/<{$WebID}></span></a></div>
+            <div class="col-sm-6 text-right"><a href="http://class.tn.edu.tw" target="_blank">本站使用「班網輕鬆架」服務架設</a></div>
           </div>
         <{else}>
           <div class="text-center">
