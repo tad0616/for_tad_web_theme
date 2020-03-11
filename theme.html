@@ -49,7 +49,8 @@
         float: none;
       }
       .sf-menu, .sf-menu * {
-        font-size: <{$menu_font_size}>px;
+        <{assign var=menu_font_size_sm value=$menu_font_size/12|round:2}>
+        font-size: <{$menu_font_size_sm}>em;
       }
 
       #tad_sf_menu{
@@ -117,7 +118,7 @@
     <{/php}>
 
     <{if $theme_display_mode!="blank"}>
-      <{includeq file="$xoops_rootpath/modules/tadtools/themes3_tpl/menu/superfish/menu.tpl"}>
+      <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/menu/superfish/menu.tpl"}>
     <{/if}>
 
     <style>
@@ -144,10 +145,10 @@
 
     <{if $web_display_mode=="no"}>
       <div class="container" id="container" style="background-color: <{$container_bg_color}>;">
-        <a name="top"></a>
+        <a name="top">&nbsp;</a>
         <div class="row" style="margin-top: 10px;">
           <div class="col-sm-12">
-            <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_header_b3.html"}>
+            <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_header.tpl"}>
           </div>
         </div>
         <div class="row">
@@ -160,38 +161,38 @@
       </div>
     <{elseif $theme_display_mode=="blank"}>
       <{if $blank_kind=="content"}>
-        <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blank_b3.html"}>
+        <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blank.tpl"}>
       <{else}>
-        <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_demo_b3.html"}>
+        <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_demo.tpl"}>
       <{/if}>
     <{else}>
       <div class="container" id="container" style="background-color: <{$container_bg_color}>;">
-        <a name="top"></a>
+        <a name="top">&nbsp;</a>
         <div class="row" style="margin-top: 10px;">
           <div class="col-sm-12">
-            <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_header_b3.html"}>
+            <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_header.tpl"}>
           </div>
         </div>
         <div class="row">
           <{if $theme_side=="none"}>
             <div class="col-sm-12 web_center_block" id="web_center_block">
-              <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_center_b3.html"}>
+              <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_center.tpl"}>
             </div>
           <{else}>
             <{if $theme_side=="left"}>
               <div class="col-sm-3 web_side_block" id="web_side_block">
                 <div <{if $side_bg_color!=$container_bg_color}>style="background: <{$side_bg_color}>; border-radius: 5px; padding: 20px 10px; margin-bottom: 20px;"<{/if}>>
-                  <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_side_b3.html"}>
+                  <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_side.tpl"}>
                 </div>
               </div>
             <{/if}>
             <div class="col-sm-9 web_center_block" id="web_center_block">
-                <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_center_b3.html"}>
+                <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_center.tpl"}>
             </div>
             <{if $theme_side=="right"}>
               <div class="col-sm-3 web_side_block" id="web_side_block">
                 <div <{if $side_bg_color!=$container_bg_color}>style="background: <{$side_bg_color}>; border-radius: 5px; padding: 20px 10px; margin-bottom: 20px;"<{/if}>>
-                  <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_side_b3.html"}>
+                  <{includeq file="$xoops_rootpath/modules/tad_web/templates/tad_web_blocks_side.tpl"}>
                 </div>
               </div>
             <{/if}>
@@ -199,12 +200,12 @@
         </div>
       </div>
 
-      <div id="tad_web_footer" style="background: #000000; color: #fcfcfc; font-size: 12px; font-family: Arial, Tahoma, Helvetica, Comic Sans MS, Georgia; padding: 5px;">
+      <div id="tad_web_footer" style="background: #000000; color: #fcfcfc; font-size: 0.8em; font-family: Arial, Tahoma, Helvetica, Comic Sans MS, Georgia; padding: 5px;">
 
         <{if $_IS_EZCLASS}>
           <div class="row">
-            <div class="col-sm-6 text-left"><a href="http://class.tn.edu.tw/<{$WebID}>" target="_blank">本站網址：<span style="color:#60FF88;">http://class.tn.edu.tw/<{$WebID}></span></a></div>
-            <div class="col-sm-6 text-right"><a href="http://class.tn.edu.tw" target="_blank">本站使用「班網輕鬆架」服務架設</a></div>
+            <div class="col-sm-6 text-left"><a href="https://class.tn.edu.tw/<{$WebID}>" target="_blank">本站網址：<span style="color:#60FF88;">https://class.tn.edu.tw/<{$WebID}></span></a></div>
+            <div class="col-sm-6 text-right"><a href="https://class.tn.edu.tw" target="_blank">本站使用「班網輕鬆架」服務架設</a></div>
           </div>
         <{else}>
           <div class="text-center">
