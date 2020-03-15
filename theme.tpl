@@ -49,8 +49,7 @@
         float: none;
       }
       .sf-menu, .sf-menu * {
-        <{assign var=menu_font_size_sm value=$menu_font_size/12|round:2}>
-        font-size: <{$menu_font_size_sm}>em;
+        font-size: <{$menu_font_size}>;
       }
 
       #tad_sf_menu{
