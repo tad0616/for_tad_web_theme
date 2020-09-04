@@ -26,7 +26,13 @@
                 body{
                 font-family: "Microsoft JhengHei UI";
                 <{if $bg_color}>background-color: <{$bg_color}>;<{/if}>
-                <{if $web_bg}>background-image: url('<{$xoops_url}>/uploads/tad_web/<{$WebID}>/bg/<{$web_bg}>');<{/if}>
+                <{if $web_bg}>
+                    <{if $web_bg|strpos:"bg_$WebID_" !== false}>
+                        background-image: url('<{$xoops_url}>/uploads/tad_web/<{$WebID}>/bg/<{$web_bg}>');
+                    <{else}>
+                        background-image: url('<{$xoops_url}>/modules/tad_web/images/bg/<{$web_bg}>');
+                    <{/if}>
+                <{/if}>
                 <{if $bg_repeat}>background-repeat: <{$bg_repeat}>;<{/if}>
                 <{if $bg_attachment}>background-attachment: <{$bg_attachment}>;<{/if}>
                 <{if $bg_postiton}>background-position: <{$bg_postiton}>;<{/if}>
