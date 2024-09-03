@@ -53,6 +53,7 @@
             .sf-menu{
                 width: 100%;
                 float: none;
+                box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.1);
             }
             .sf-menu, .sf-menu * {
                 font-size: <{$menu_font_size}>;
@@ -201,7 +202,7 @@
                 </div>
             </div>
 
-            <div id="tad_web_footer" style="background: #000000; color: #fcfcfc; font-size: 0.8em; font-family: Arial, Tahoma, Helvetica, Comic Sans MS, Georgia; padding: 5px;">
+            <div id="tad_web_footer" style="background: #000000; color: #fcfcfc; font-size: 0.8rem; font-family: Arial, Tahoma, Helvetica, Comic Sans MS, Georgia; padding: 5px;">
 
                 <{if $_IS_EZCLASS}>
                 <div class="row">
