@@ -140,7 +140,7 @@
         <{/if}>
     </head>
 
-    <body>
+    <body  <{$prism_setup}>>
 
         <{if $theme_display_mode|default:'' !="blank"}>
             <{include file="$xoops_rootpath/modules/tadtools/themes_common/menu/superfish/menu.tpl"}>
